@@ -10,33 +10,226 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as HotelBookingRouteImport } from './routes/hotel-booking'
+import { Route as HeritageIndexRouteImport } from './routes/heritage.index'
+import { Route as HeritageBiharinathHillRouteImport } from './routes/heritage.biharinath-hill'
+import { Route as HeritageCoalMiningHeritageRouteImport } from './routes/heritage.coal-mining-heritage'
+import { Route as HeritageDamodarRiverRouteImport } from './routes/heritage.damodar-river'
+import { Route as HeritageGhagarBuriChandiTempleRouteImport } from './routes/heritage.ghagar-buri-chandi-temple'
+import { Route as HeritageKalyaneshwariTempleRouteImport } from './routes/heritage.kalyaneshwari-temple'
+import { Route as HeritageNehruParkRouteImport } from './routes/heritage.nehru-park'
+import { Route as HeritageRaniganjCemeteryRouteImport } from './routes/heritage.raniganj-cemetery'
+import { Route as HeritageRaniganjCoalfieldsRouteImport } from './routes/heritage.raniganj-coalfields'
+import { Route as HeritageRaniganjRailwayHeritageRouteImport } from './routes/heritage.raniganj-railway-heritage'
+import { Route as HeritageRaniganjWesleyanChurchRouteImport } from './routes/heritage.raniganj-wesleyan-church'
+import { Route as HeritageSearsoleRajbariRouteImport } from './routes/heritage.searsole-rajbari'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HotelBookingRoute = HotelBookingRouteImport.update({
+  id: '/hotel-booking',
+  path: '/hotel-booking',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HeritageIndexRoute = HeritageIndexRouteImport.update({
+  id: '/heritage/',
+  path: '/heritage/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HeritageBiharinathHillRoute = HeritageBiharinathHillRouteImport.update({
+  id: '/heritage/biharinath-hill',
+  path: '/heritage/biharinath-hill',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HeritageCoalMiningHeritageRoute =
+  HeritageCoalMiningHeritageRouteImport.update({
+    id: '/heritage/coal-mining-heritage',
+    path: '/heritage/coal-mining-heritage',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const HeritageDamodarRiverRoute = HeritageDamodarRiverRouteImport.update({
+  id: '/heritage/damodar-river',
+  path: '/heritage/damodar-river',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HeritageGhagarBuriChandiTempleRoute =
+  HeritageGhagarBuriChandiTempleRouteImport.update({
+    id: '/heritage/ghagar-buri-chandi-temple',
+    path: '/heritage/ghagar-buri-chandi-temple',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const HeritageKalyaneshwariTempleRoute =
+  HeritageKalyaneshwariTempleRouteImport.update({
+    id: '/heritage/kalyaneshwari-temple',
+    path: '/heritage/kalyaneshwari-temple',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const HeritageNehruParkRoute = HeritageNehruParkRouteImport.update({
+  id: '/heritage/nehru-park',
+  path: '/heritage/nehru-park',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HeritageRaniganjCemeteryRoute =
+  HeritageRaniganjCemeteryRouteImport.update({
+    id: '/heritage/raniganj-cemetery',
+    path: '/heritage/raniganj-cemetery',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const HeritageRaniganjCoalfieldsRoute =
+  HeritageRaniganjCoalfieldsRouteImport.update({
+    id: '/heritage/raniganj-coalfields',
+    path: '/heritage/raniganj-coalfields',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const HeritageRaniganjRailwayHeritageRoute =
+  HeritageRaniganjRailwayHeritageRouteImport.update({
+    id: '/heritage/raniganj-railway-heritage',
+    path: '/heritage/raniganj-railway-heritage',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const HeritageRaniganjWesleyanChurchRoute =
+  HeritageRaniganjWesleyanChurchRouteImport.update({
+    id: '/heritage/raniganj-wesleyan-church',
+    path: '/heritage/raniganj-wesleyan-church',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const HeritageSearsoleRajbariRoute = HeritageSearsoleRajbariRouteImport.update({
+  id: '/heritage/searsole-rajbari',
+  path: '/heritage/searsole-rajbari',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/gallery': typeof GalleryRoute
+  '/hotel-booking': typeof HotelBookingRoute
+  '/heritage/biharinath-hill': typeof HeritageBiharinathHillRoute
+  '/heritage/coal-mining-heritage': typeof HeritageCoalMiningHeritageRoute
+  '/heritage/damodar-river': typeof HeritageDamodarRiverRoute
+  '/heritage/ghagar-buri-chandi-temple': typeof HeritageGhagarBuriChandiTempleRoute
+  '/heritage/kalyaneshwari-temple': typeof HeritageKalyaneshwariTempleRoute
+  '/heritage/nehru-park': typeof HeritageNehruParkRoute
+  '/heritage/raniganj-cemetery': typeof HeritageRaniganjCemeteryRoute
+  '/heritage/raniganj-coalfields': typeof HeritageRaniganjCoalfieldsRoute
+  '/heritage/raniganj-railway-heritage': typeof HeritageRaniganjRailwayHeritageRoute
+  '/heritage/raniganj-wesleyan-church': typeof HeritageRaniganjWesleyanChurchRoute
+  '/heritage/searsole-rajbari': typeof HeritageSearsoleRajbariRoute
+  '/heritage/': typeof HeritageIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/gallery': typeof GalleryRoute
+  '/hotel-booking': typeof HotelBookingRoute
+  '/heritage/biharinath-hill': typeof HeritageBiharinathHillRoute
+  '/heritage/coal-mining-heritage': typeof HeritageCoalMiningHeritageRoute
+  '/heritage/damodar-river': typeof HeritageDamodarRiverRoute
+  '/heritage/ghagar-buri-chandi-temple': typeof HeritageGhagarBuriChandiTempleRoute
+  '/heritage/kalyaneshwari-temple': typeof HeritageKalyaneshwariTempleRoute
+  '/heritage/nehru-park': typeof HeritageNehruParkRoute
+  '/heritage/raniganj-cemetery': typeof HeritageRaniganjCemeteryRoute
+  '/heritage/raniganj-coalfields': typeof HeritageRaniganjCoalfieldsRoute
+  '/heritage/raniganj-railway-heritage': typeof HeritageRaniganjRailwayHeritageRoute
+  '/heritage/raniganj-wesleyan-church': typeof HeritageRaniganjWesleyanChurchRoute
+  '/heritage/searsole-rajbari': typeof HeritageSearsoleRajbariRoute
+  '/heritage': typeof HeritageIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/gallery': typeof GalleryRoute
+  '/hotel-booking': typeof HotelBookingRoute
+  '/heritage/biharinath-hill': typeof HeritageBiharinathHillRoute
+  '/heritage/coal-mining-heritage': typeof HeritageCoalMiningHeritageRoute
+  '/heritage/damodar-river': typeof HeritageDamodarRiverRoute
+  '/heritage/ghagar-buri-chandi-temple': typeof HeritageGhagarBuriChandiTempleRoute
+  '/heritage/kalyaneshwari-temple': typeof HeritageKalyaneshwariTempleRoute
+  '/heritage/nehru-park': typeof HeritageNehruParkRoute
+  '/heritage/raniganj-cemetery': typeof HeritageRaniganjCemeteryRoute
+  '/heritage/raniganj-coalfields': typeof HeritageRaniganjCoalfieldsRoute
+  '/heritage/raniganj-railway-heritage': typeof HeritageRaniganjRailwayHeritageRoute
+  '/heritage/raniganj-wesleyan-church': typeof HeritageRaniganjWesleyanChurchRoute
+  '/heritage/searsole-rajbari': typeof HeritageSearsoleRajbariRoute
+  '/heritage/': typeof HeritageIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/gallery'
+    | '/hotel-booking'
+    | '/heritage/biharinath-hill'
+    | '/heritage/coal-mining-heritage'
+    | '/heritage/damodar-river'
+    | '/heritage/ghagar-buri-chandi-temple'
+    | '/heritage/kalyaneshwari-temple'
+    | '/heritage/nehru-park'
+    | '/heritage/raniganj-cemetery'
+    | '/heritage/raniganj-coalfields'
+    | '/heritage/raniganj-railway-heritage'
+    | '/heritage/raniganj-wesleyan-church'
+    | '/heritage/searsole-rajbari'
+    | '/heritage/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/gallery'
+    | '/hotel-booking'
+    | '/heritage/biharinath-hill'
+    | '/heritage/coal-mining-heritage'
+    | '/heritage/damodar-river'
+    | '/heritage/ghagar-buri-chandi-temple'
+    | '/heritage/kalyaneshwari-temple'
+    | '/heritage/nehru-park'
+    | '/heritage/raniganj-cemetery'
+    | '/heritage/raniganj-coalfields'
+    | '/heritage/raniganj-railway-heritage'
+    | '/heritage/raniganj-wesleyan-church'
+    | '/heritage/searsole-rajbari'
+    | '/heritage'
+  id:
+    | '__root__'
+    | '/'
+    | '/gallery'
+    | '/hotel-booking'
+    | '/heritage/biharinath-hill'
+    | '/heritage/coal-mining-heritage'
+    | '/heritage/damodar-river'
+    | '/heritage/ghagar-buri-chandi-temple'
+    | '/heritage/kalyaneshwari-temple'
+    | '/heritage/nehru-park'
+    | '/heritage/raniganj-cemetery'
+    | '/heritage/raniganj-coalfields'
+    | '/heritage/raniganj-railway-heritage'
+    | '/heritage/raniganj-wesleyan-church'
+    | '/heritage/searsole-rajbari'
+    | '/heritage/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  GalleryRoute: typeof GalleryRoute
+  HotelBookingRoute: typeof HotelBookingRoute
+  HeritageBiharinathHillRoute: typeof HeritageBiharinathHillRoute
+  HeritageCoalMiningHeritageRoute: typeof HeritageCoalMiningHeritageRoute
+  HeritageDamodarRiverRoute: typeof HeritageDamodarRiverRoute
+  HeritageGhagarBuriChandiTempleRoute: typeof HeritageGhagarBuriChandiTempleRoute
+  HeritageKalyaneshwariTempleRoute: typeof HeritageKalyaneshwariTempleRoute
+  HeritageNehruParkRoute: typeof HeritageNehruParkRoute
+  HeritageRaniganjCemeteryRoute: typeof HeritageRaniganjCemeteryRoute
+  HeritageRaniganjCoalfieldsRoute: typeof HeritageRaniganjCoalfieldsRoute
+  HeritageRaniganjRailwayHeritageRoute: typeof HeritageRaniganjRailwayHeritageRoute
+  HeritageRaniganjWesleyanChurchRoute: typeof HeritageRaniganjWesleyanChurchRoute
+  HeritageSearsoleRajbariRoute: typeof HeritageSearsoleRajbariRoute
+  HeritageIndexRoute: typeof HeritageIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +241,123 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hotel-booking': {
+      id: '/hotel-booking'
+      path: '/hotel-booking'
+      fullPath: '/hotel-booking'
+      preLoaderRoute: typeof HotelBookingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/heritage/': {
+      id: '/heritage/'
+      path: '/heritage'
+      fullPath: '/heritage/'
+      preLoaderRoute: typeof HeritageIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/heritage/biharinath-hill': {
+      id: '/heritage/biharinath-hill'
+      path: '/heritage/biharinath-hill'
+      fullPath: '/heritage/biharinath-hill'
+      preLoaderRoute: typeof HeritageBiharinathHillRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/heritage/coal-mining-heritage': {
+      id: '/heritage/coal-mining-heritage'
+      path: '/heritage/coal-mining-heritage'
+      fullPath: '/heritage/coal-mining-heritage'
+      preLoaderRoute: typeof HeritageCoalMiningHeritageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/heritage/damodar-river': {
+      id: '/heritage/damodar-river'
+      path: '/heritage/damodar-river'
+      fullPath: '/heritage/damodar-river'
+      preLoaderRoute: typeof HeritageDamodarRiverRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/heritage/ghagar-buri-chandi-temple': {
+      id: '/heritage/ghagar-buri-chandi-temple'
+      path: '/heritage/ghagar-buri-chandi-temple'
+      fullPath: '/heritage/ghagar-buri-chandi-temple'
+      preLoaderRoute: typeof HeritageGhagarBuriChandiTempleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/heritage/kalyaneshwari-temple': {
+      id: '/heritage/kalyaneshwari-temple'
+      path: '/heritage/kalyaneshwari-temple'
+      fullPath: '/heritage/kalyaneshwari-temple'
+      preLoaderRoute: typeof HeritageKalyaneshwariTempleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/heritage/nehru-park': {
+      id: '/heritage/nehru-park'
+      path: '/heritage/nehru-park'
+      fullPath: '/heritage/nehru-park'
+      preLoaderRoute: typeof HeritageNehruParkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/heritage/raniganj-cemetery': {
+      id: '/heritage/raniganj-cemetery'
+      path: '/heritage/raniganj-cemetery'
+      fullPath: '/heritage/raniganj-cemetery'
+      preLoaderRoute: typeof HeritageRaniganjCemeteryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/heritage/raniganj-coalfields': {
+      id: '/heritage/raniganj-coalfields'
+      path: '/heritage/raniganj-coalfields'
+      fullPath: '/heritage/raniganj-coalfields'
+      preLoaderRoute: typeof HeritageRaniganjCoalfieldsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/heritage/raniganj-railway-heritage': {
+      id: '/heritage/raniganj-railway-heritage'
+      path: '/heritage/raniganj-railway-heritage'
+      fullPath: '/heritage/raniganj-railway-heritage'
+      preLoaderRoute: typeof HeritageRaniganjRailwayHeritageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/heritage/raniganj-wesleyan-church': {
+      id: '/heritage/raniganj-wesleyan-church'
+      path: '/heritage/raniganj-wesleyan-church'
+      fullPath: '/heritage/raniganj-wesleyan-church'
+      preLoaderRoute: typeof HeritageRaniganjWesleyanChurchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/heritage/searsole-rajbari': {
+      id: '/heritage/searsole-rajbari'
+      path: '/heritage/searsole-rajbari'
+      fullPath: '/heritage/searsole-rajbari'
+      preLoaderRoute: typeof HeritageSearsoleRajbariRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  GalleryRoute: GalleryRoute,
+  HotelBookingRoute: HotelBookingRoute,
+  HeritageBiharinathHillRoute: HeritageBiharinathHillRoute,
+  HeritageCoalMiningHeritageRoute: HeritageCoalMiningHeritageRoute,
+  HeritageDamodarRiverRoute: HeritageDamodarRiverRoute,
+  HeritageGhagarBuriChandiTempleRoute: HeritageGhagarBuriChandiTempleRoute,
+  HeritageKalyaneshwariTempleRoute: HeritageKalyaneshwariTempleRoute,
+  HeritageNehruParkRoute: HeritageNehruParkRoute,
+  HeritageRaniganjCemeteryRoute: HeritageRaniganjCemeteryRoute,
+  HeritageRaniganjCoalfieldsRoute: HeritageRaniganjCoalfieldsRoute,
+  HeritageRaniganjRailwayHeritageRoute: HeritageRaniganjRailwayHeritageRoute,
+  HeritageRaniganjWesleyanChurchRoute: HeritageRaniganjWesleyanChurchRoute,
+  HeritageSearsoleRajbariRoute: HeritageSearsoleRajbariRoute,
+  HeritageIndexRoute: HeritageIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
