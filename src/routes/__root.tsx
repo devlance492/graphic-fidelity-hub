@@ -11,7 +11,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
+import { reportError } from "../lib/error-reporting";
 
 function NotFoundComponent() {
   return (
@@ -39,7 +39,7 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
+    reportError(error, { boundary: "root_error_component" });
   }, [error]);
 
   return (
@@ -108,6 +108,13 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        {/* Hide any third-party injected editor badges */}
+        <style>{`
+          [id*="lovable"], [class*="lovable"],
+          [id*="gptengineer"], [class*="gptengineer"],
+          iframe[src*="lovable"], iframe[src*="gptengineer"],
+          div[style*="lovable"] { display: none !important; }
+        `}</style>
       </head>
       <body>
         {children}
