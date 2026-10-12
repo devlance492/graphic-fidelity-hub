@@ -1,5 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useState, type FormEvent } from "react";
+﻿import { createFileRoute } from "@tanstack/react-router";
+import { useState, useRef, type FormEvent } from "react";
 import { SiteLayout } from "@/components/SiteLayout";
 
 export const Route = createFileRoute("/hotel-booking")({
@@ -18,16 +18,20 @@ export const Route = createFileRoute("/hotel-booking")({
 
 function Booking() {
   const [sent, setSent] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
+    formRef.current?.reset();
     setSent(true);
   };
+
   return (
     <SiteLayout>
       <section className="mx-auto max-w-3xl px-4 py-12">
         <h1 className="text-center text-4xl sm:text-6xl">Hotel Booking</h1>
         <p className="mt-2 text-center text-muted-foreground">Fill in your details to request a stay in Raniganj.</p>
-        <form onSubmit={onSubmit} onReset={() => setSent(false)} className="mt-8 grid gap-5 rounded-lg border bg-card p-6 shadow-md sm:grid-cols-2">
+        <form ref={formRef} onSubmit={onSubmit} className="mt-8 grid gap-5 rounded-lg border bg-card p-6 shadow-md sm:grid-cols-2">
           <div className="sm:col-span-2">
             <label className="label" htmlFor="name">Full Name</label>
             <input id="name" name="name" type="text" required className="field" />
@@ -89,13 +93,101 @@ function Booking() {
             <button type="submit" className="btn-primary">Submit Booking</button>
             <button type="reset" className="btn-outline">Clear Form</button>
           </div>
-          {sent && (
-            <p className="rounded-md bg-secondary p-3 text-sm sm:col-span-2" role="status">
-              Thank you! Your booking request has been received. (Demo form — no real booking is made.)
-            </p>
-          )}
         </form>
       </section>
+
+      {sent && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Booking confirmed"
+          onClick={() => setSent(false)}
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 9999,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "rgba(0,0,0,0.55)",
+            backdropFilter: "blur(6px)",
+            animation: "hbk-fadeIn 0.25s ease",
+          }}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              background: "#ffffff",
+              borderRadius: "1.25rem",
+              padding: "2.75rem 2.25rem",
+              maxWidth: 400,
+              width: "90%",
+              textAlign: "center",
+              boxShadow: "0 24px 64px rgba(0,0,0,0.22)",
+              animation: "hbk-slideUp 0.4s cubic-bezier(0.34,1.56,0.64,1)",
+            }}
+          >
+            <svg viewBox="0 0 80 80" width={96} height={96} style={{ margin: "0 auto 1.5rem", display: "block" }} aria-hidden="true">
+              <circle cx="40" cy="40" r="38" fill="#f0fdf4" />
+              <circle
+                cx="40" cy="40" r="34"
+                fill="none"
+                stroke="#22c55e"
+                strokeWidth="4.5"
+                strokeLinecap="round"
+                strokeDasharray="214"
+                strokeDashoffset="214"
+                style={{ animation: "hbk-drawCircle 0.55s ease forwards", transformOrigin: "center", transform: "rotate(-90deg)" }}
+              />
+              <polyline
+                points="23,42 35,54 57,29"
+                fill="none"
+                stroke="#16a34a"
+                strokeWidth="5.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeDasharray="55"
+                strokeDashoffset="55"
+                style={{ animation: "hbk-drawTick 0.4s 0.5s ease forwards" }}
+              />
+            </svg>
+
+            <h2 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#111827", margin: "0 0 0.5rem", letterSpacing: "-0.02em" }}>
+              Booking Confirmed!
+            </h2>
+            <p style={{ color: "#6b7280", fontSize: "0.95rem", lineHeight: 1.65, margin: "0 0 2rem" }}>
+              Thank you! Your booking request has been received.<br />
+              Our team will get in touch with you shortly.
+            </p>
+            <button
+              id="booking-success-done"
+              onClick={() => setSent(false)}
+              style={{
+                background: "#22c55e",
+                color: "#fff",
+                border: "none",
+                borderRadius: "0.65rem",
+                padding: "0.7rem 2.25rem",
+                fontSize: "1rem",
+                fontWeight: 600,
+                cursor: "pointer",
+                transition: "background 0.2s, transform 0.15s",
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.background = "#16a34a"; e.currentTarget.style.transform = "scale(1.03)"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.background = "#22c55e"; e.currentTarget.style.transform = "scale(1)"; }}
+            >
+              Done
+            </button>
+          </div>
+
+          <style>{`
+            @keyframes hbk-fadeIn { from { opacity: 0; } to { opacity: 1; } }
+            @keyframes hbk-slideUp { from { opacity: 0; transform: translateY(50px) scale(0.9); } to { opacity: 1; transform: translateY(0) scale(1); } }
+            @keyframes hbk-drawCircle { to { stroke-dashoffset: 0; } }
+            @keyframes hbk-drawTick { to { stroke-dashoffset: 0; } }
+          `}</style>
+        </div>
+      )}
     </SiteLayout>
   );
 }
